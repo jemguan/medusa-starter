@@ -23,4 +23,7 @@ build
 !.yarn/sdks
 !.yarn/versions
 
-.medusa
+.env.*
+!.env.template
+
+*.db
