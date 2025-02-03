@@ -53,11 +53,14 @@ module.exports = defineConfig({
             options: {
               file_url: process.env.SPACE_URL,
               bucket: process.env.SPACE_BUCKET,
-              endpoint: process.env.SPACE_ENDPOINT,
+              endpoint: `https://${process.env.SPACE_REGION}.digitaloceanspaces.com`,
               access_key_id: process.env.SPACE_ACCESS_KEY_ID,
               secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
               region: process.env.SPACE_REGION,
-              prefix: process.env.SPACE_PATH
+              prefix: process.env.SPACE_PATH,
+              additional_client_config: {
+                forcePathStyle: true
+              }
             }
           }
         ]
