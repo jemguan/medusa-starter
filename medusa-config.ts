@@ -44,17 +44,25 @@ module.exports = defineConfig({
       key: "workflows",
     },
     {
-      resolve: "@medusajs/file-spaces",
+      resolve: "@medusajs/medusa/file",
       options: {
-        spaces_url: process.env.SPACE_URL,
-        bucket: process.env.SPACE_BUCKET,
-        endpoint: process.env.SPACE_ENDPOINT,
-        access_key_id: process.env.SPACE_ACCESS_KEY_ID,
-        secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
-        region: process.env.SPACE_REGION,
-        path: process.env.SPACE_PATH
+        providers: [
+          {
+            resolve: "@medusajs/medusa/file-s3",
+            id: "s3",
+            options: {
+              file_url: process.env.SPACE_URL,
+              bucket: process.env.SPACE_BUCKET,
+              endpoint: process.env.SPACE_ENDPOINT,
+              access_key_id: process.env.SPACE_ACCESS_KEY_ID,
+              secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
+              region: process.env.SPACE_REGION,
+              prefix: process.env.SPACE_PATH
+            }
+          }
+        ]
       },
-      key: "spaces"
+      key: "file"
     }
   ],
 })
