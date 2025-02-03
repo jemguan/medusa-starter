@@ -19,13 +19,17 @@
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
-    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
+    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
+    "predeploy": "medusa db:migrate"
   },
   "dependencies": {
     "@medusajs/admin-sdk": "2.4.0",
+    "@medusajs/cache-redis": "^2.4.0",
     "@medusajs/cli": "2.4.0",
-    "@medusajs/framework": "2.4.0",
+    "@medusajs/event-bus-redis": "^2.4.0",
+    "@medusajs/framework": "^2.4.0",
     "@medusajs/medusa": "2.4.0",
+    "@medusajs/workflow-engine-redis": "^2.4.0",
     "@mikro-orm/core": "6.4.3",
     "@mikro-orm/knex": "6.4.3",
     "@mikro-orm/migrations": "6.4.3",
@@ -53,5 +57,6 @@
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
 }
