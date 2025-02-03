@@ -43,5 +43,18 @@ module.exports = defineConfig({
       },
       key: "workflows",
     },
+    {
+      resolve: "@medusajs/file-spaces",
+      options: {
+        spaces_url: process.env.SPACE_URL,
+        bucket: process.env.SPACE_BUCKET,
+        endpoint: process.env.SPACE_ENDPOINT,
+        access_key_id: process.env.SPACE_ACCESS_KEY_ID,
+        secret_access_key: process.env.SPACE_SECRET_ACCESS_KEY,
+        region: process.env.SPACE_REGION,
+        path: process.env.SPACE_PATH
+      },
+      key: "spaces"
+    }
   ],
 })
