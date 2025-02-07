@@ -13,7 +13,7 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
     workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
-    redisUrl: process.env.REDIS_URL,
+    redisUrl: process.env.REDIS_PUBLIC_URL,
   },
   admin: {
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
@@ -23,14 +23,14 @@ module.exports = defineConfig({
     {
       resolve: "@medusajs/cache-redis",
       options: {
-        redisUrl: process.env.REDIS_URL,
+        redisUrl: process.env.REDIS_PUBLIC_URL,
       },
       key: "cache",
     },
     {
       resolve: "@medusajs/event-bus-redis",
       options: {
-        redisUrl: process.env.REDIS_URL,
+        redisUrl: process.env.REDIS_PUBLIC_URL,
       },
       key: "events",
     },
@@ -38,7 +38,7 @@ module.exports = defineConfig({
       resolve: "@medusajs/workflow-engine-redis",
       options: {
         redis: {
-          url: process.env.REDIS_URL,
+          url: process.env.REDIS_PUBLIC_URL,
         },
       },
       key: "workflows",
